@@ -4,10 +4,11 @@
 
 function! Setup() abort
 	let g:todecode = expand('%:p') . '.enc.sh'
-	execute "silent !echo setup file: " . g:todecode
+	execute "silent !echo conf file: " . g:todecode
 	execute "silent !echo sudo bash setup.sh"
-	execute "new"
+	execute "enew"
 	execute "Nread \"" . g:todecode . "\""
+	execute "normal! ggdd"
 	execute "write! setup.sh"
 	execute "quitall!"
 endfunction
