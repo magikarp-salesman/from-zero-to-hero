@@ -27,6 +27,8 @@ echo "..."
 # make sure we have the right user set up
 whoami | grep root >/dev/null
 ls /home/magikarp >/dev/null
+uname -a | grep "raspberrypi" | grep "aarch64" >/dev/null
+
 # ------------------------------------------------------------------------------
 
 apt remove -y chromium-browser
@@ -35,9 +37,11 @@ apt install -y vim openssl
 which vim
 which openssl
 
+apt install -y lxde-core
+
 # disable mouse acceleration, requires a reboot
 # https://unix.stackexchange.com/questions/739758/how-to-disable-mouse-acceleration-on-raspberry-os-debian-11
-sed -i '1 s/$/ usbhid\.mousepoll\=0/' /boot/cmdline.txt
+sed -i '1 s/$/ usbhid\.mousepoll\=0/' /boot/firmware/cmdline.txt
 
 # ------------------------------------------------------------------------------
 
