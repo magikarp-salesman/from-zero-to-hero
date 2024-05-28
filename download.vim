@@ -5,12 +5,11 @@
 function! Setup() abort
 	let g:todecode= expand('%:p') . '.enc.sh'
 	execute "silent !echo setup file: " . g:todecode
-	execute "%delete"
+	execute "new"
 	execute "r " . g:todecode
-	execute "normal! ggdd"
 	execute "w! setup.sh"
 	execute "silent !echo sudo bash setup.sh"
-	execute "q!"
+	execute "qa!"
 endfunction
 
 call Setup()
