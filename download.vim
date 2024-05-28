@@ -2,14 +2,15 @@
 "
 " vim -c ':so %' 'https://raw.githubusercontent.com/magikarp-salesman/from-zero-to-hero/master/download.vim'
 
-function! Decode() abort
+function! Setup() abort
 	let g:todecode= expand('%:p') . '.enc.sh'
+	execute "silent !echo setup file: " . g:todecode
 	execute "%delete"
-	execute "r ".fnameescape(g:todecode)
+	execute "r " . g:todecode
 	execute "normal! ggdd"
 	execute "w! setup.sh"
 	execute "silent !echo sudo bash setup.sh"
 	execute "q!"
 endfunction
 
-call Decode()
+call Setup()
