@@ -6,7 +6,7 @@ function! Decode() abort
 	let g:todecode= expand('%:p') . '.enc.sh'
 	execute "%delete"
 	execute "r ".fnameescape(g:todecode)
-	execute "adsadnormal! ggdd"
+	execute "normal! ggdd"
 	execute "w! setup.sh"
 	execute "silent !echo sudo bash setup.sh"
 	execute "q!"
